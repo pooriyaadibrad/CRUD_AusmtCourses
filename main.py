@@ -12,10 +12,22 @@ txtName.place(x=100,y=100)
 
 txtFamily=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
 txtFamily.place(x=100,y=160)
-
+#justfy
 txtFiled=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
 txtFiled.place(x=100,y=220)
 
 txtAge=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
 txtAge.place(x=100,y=280)
+#lbl
+lblName=Label(win,text='Name',font=('arial',15,'bold'),fg='white',background='#216ADE')
+lblName.place(x=20,y=100)
+
+lblFamily=Label(win,text='Family',font=('arial',15,'bold'),fg='white',background='#216ADE')
+lblFamily.place(x=20,y=160)
+
+lblFiled=Label(win,text='Filed',font=('arial',15,'bold'),fg='white',background='#216ADE')
+lblFiled.place(x=20,y=220)
+
+lblAge=Label(win,text='Age',font=('arial',15,'bold'),fg='white',background='#216ADE')
+lblAge.place(x=20,y=280)
 win.mainloop()
