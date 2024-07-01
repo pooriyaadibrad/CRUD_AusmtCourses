@@ -30,4 +30,9 @@ lblFiled.place(x=20,y=220)
 
 lblAge=Label(win,text='Age',font=('arial',15,'bold'),fg='white',background='#216ADE')
 lblAge.place(x=20,y=280)
+
+#btn
+btnRegister=Button(win,text='Register',width=10,font=('arial',15,'bold'),fg='white',background='#822FC1')
+btnRegister.bind('<Enter>',)
+btnRegister.place(x=125,y=350)
 win.mainloop()
