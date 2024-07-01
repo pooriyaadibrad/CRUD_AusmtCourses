@@ -11,6 +11,10 @@ def ChangeButtonStyleWithHover(e):
     btnRegister.configure(fg='#822FC1',background='white')
 def ChangeButtonStyleWithHoverToSelf(e):
     btnRegister.configure(fg='white',background='#822FC1')
+def onClickRegister(e):
+    person={'name':txtName.get(),'family':txtFamily.get(),'feild':txtFiled.get(),'age':txtAge.get()}
+def Register():
+    pass
 #txt
 txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
 txtName.place(x=100,y=100)
@@ -40,5 +44,6 @@ lblAge.place(x=20,y=280)
 btnRegister=Button(win,text='Register',width=10,font=('arial',15,'bold'),fg='white',background='#822FC1')
 btnRegister.bind('<Enter>',ChangeButtonStyleWithHover)
 btnRegister.bind('<Leave>',ChangeButtonStyleWithHoverToSelf)
+btnRegister.bind('<Button-1>',onClickRegister)
 btnRegister.place(x=125,y=350)
 win.mainloop()
