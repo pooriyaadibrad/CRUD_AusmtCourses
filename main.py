@@ -7,7 +7,10 @@ win.iconbitmap('icons/Mainicon.ico')
 #win.attributes("-fullscreen", True)
 win.configure(background='#216ADE')
 #def
-
+def ChangeButtonStyleWithHover(e):
+    btnRegister.configure(fg='#822FC1',background='white')
+def ChangeButtonStyleWithHoverToSelf(e):
+    btnRegister.configure(fg='white',background='#822FC1')
 #txt
 txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
 txtName.place(x=100,y=100)
