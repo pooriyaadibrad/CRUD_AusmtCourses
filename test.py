@@ -36,5 +36,10 @@ table.place(x=400,y=100)
 table.insert('','end',values=['Name','Family','Feild','age'])
 table.insert('','end',values=['Name','Family','Feild','age'])
 table.insert('','end',values=['Name','Family','Feild','age'])
+
 CleanTable()
+
+txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white',justify='center')
+txtName.place(x=100,y=100)
+print(txtName.cget('width'))
 win.mainloop()
