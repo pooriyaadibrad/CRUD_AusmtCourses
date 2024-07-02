@@ -43,3 +43,22 @@ txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white'
 txtName.place(x=100,y=100)
 print(txtName.cget('width'))
 win.mainloop()
+
+"""
+import tkinter as tk
+
+def on_button_click(event):
+    print(f"{event.widget['text']} clicked")
+
+root = tk.Tk()
+
+buttons = []
+button_texts = ["Button 1", "Button 2", "Button 3"]
+
+for text in button_texts:
+    button = tk.Button(root, text=text)
+    button.pack()
+    button.bind("<Button-1>", on_button_click)
+    buttons.append(button)
+
+root.mainloop()"""
