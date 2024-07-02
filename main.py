@@ -7,10 +7,10 @@ db=Client['CRUD']
 persons=db['persons3']
 
 win=Tk()
-win.geometry("850x600")
+#win.geometry("850x600")
 win.title('CRUD')
 win.iconbitmap('icons/Mainicon.ico')
-#win.attributes("-fullscreen", True)
+win.attributes("-fullscreen", True)
 win.configure(background='#216ADE')
 #def
 def ChangeButtonStyleWithHoverRegister(e):
@@ -143,12 +143,15 @@ def FindData(Data):
         if data['name'] == Data['name'] and data['family'] == Data['family'] and data['field'] == Data['field'] and data['age'] == Data['age']:
             return data
     return False
+def DestroyWindow(e):
+    win.destroy()
 #TextVariable
 Name=StringVar()
 Family=StringVar()
 Age=StringVar()
 Search=StringVar()
-
+#image
+closeImage=PhotoImage(file='images/closeImage.png')
 #txt
 txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white',textvariable=Name,justify='center')
 txtName.bind('<KeyRelease>',ActiveBtn)
@@ -209,6 +212,9 @@ btnUpdate.bind('<Leave>',ChangeButtonStyleWithHoverToSelf)
 btnUpdate.bind('<Button-1>',onClickUpdate)
 btnUpdate.place(x=400,y=330)
 
+CloseBtn=Button(win,image=closeImage,height=50,width=100)
+CloseBtn.bind('<Button-1>',DestroyWindow)
+CloseBtn.place(x=10,y=10)
 
 #tbl
 columns=('Name','Family','field','Age')
