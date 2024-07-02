@@ -3,7 +3,7 @@ from tkinter import ttk
 from pymongo import MongoClient
 Client = MongoClient('localhost', 27017)
 db=Client['CRUD']
-persons=db['persons']
+persons=db['persons1']
 
 win=Tk()
 win.geometry("850x600")
@@ -19,20 +19,40 @@ def ChangeButtonStyleWithHoverToSelf(e):
 def onClickRegister(e):
     person={'name':txtName.get(),'family':txtFamily.get(),'feild':txtFiled.get(),'age':txtAge.get()}
     Register(person)
+    allData=ReadData()
+    CleanTable()
+    for data in allData:
+        InsertDataToTable(data)
+
 def Register(person):
     persons.insert_one(person)
+def ReadData():
+    AllData=persons.find()
+    return AllData
+def InsertDataToTable(person):
+    table.insert('','end',values=[person['name'],person['family'],person['feild'],person['age']])
+def CleanTable():
+    for item in table.get_children():
+        table.delete(item)
+def CleanTextBoxAfterUseCrud():
+    pass
+Name=StringVar()
+Family=StringVar()
+Feild=StringVar()
+Age=StringVar()
+
 
 #txt
-txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
+txtName=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white',textvariable=Name,justify='center')
 txtName.place(x=100,y=100)
 
-txtFamily=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
+txtFamily=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white',textvariable=Family,justify='center')
 txtFamily.place(x=100,y=160)
 #justfy
-txtFiled=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
+txtFiled=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white',textvariable=Feild,justify='center')
 txtFiled.place(x=100,y=220)
 
-txtAge=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white')
+txtAge=Entry(win,width=15,bd=5,font=('arial',15,'bold'),fg='#216ADE',bg='white',textvariable=Age,justify='center')
 txtAge.place(x=100,y=280)
 #lbl
 lblName=Label(win,text='Name',font=('arial',15,'bold'),fg='white',background='#216ADE')
@@ -69,6 +89,6 @@ table.column('age',width=100)
 """
 for i in range(len(columns)):
     table.heading(columns[i],text=columns[i])
-    table.column(columns[i],width=100)
+    table.column(columns[i],width=100,anchor='center')
 table.place(x=400,y=100)
 win.mainloop()
